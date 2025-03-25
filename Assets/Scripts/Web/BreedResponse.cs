@@ -3,7 +3,6 @@ public class BreedResponse
 {
     public BreedData[] data;
 }
-
 [System.Serializable]
 public class BreedData
 {

@@ -1,46 +1,50 @@
 using UnityEngine;
+using Zenject;
 
+// Контроллер вкладок главного интерфейса
 public class TabController : MonoBehaviour
 {
-    [SerializeField] private WeatherApiService _weatherApiService;
-    [SerializeField] private DogApiService _dogApiService;
-    [SerializeField] private WeatherPanel _weatherPanel;
-    [SerializeField] private BreedsListPanel _breedsListPanel;
-    [SerializeField] private GameObject _loadingImg;
+    [Inject] private WeatherApiService _weatherApiService;    // Сервис погоды
+    [Inject] private DogApiService _dogApiService;            // Сервис пород
+    [Inject] private WeatherPanel _weatherPanel;              // Панель погоды
+    [Inject] private BreedsListPanel _breedsListPanel;        // Панель пород
+    [SerializeField] private GameObject _loadingImg;          // Индикатор загрузки
 
-    private enum Tab { Weather, Breeds }
-    private Tab _currentTab = (Tab)(-1); // Некорректное значение для срабатывания SwitchTab на старте
+    private enum Tab { None, Weather, Breeds }                // Типы вкладок
+    private Tab _currentTab = Tab.None;                       // Активная вкладка
 
+    // Запуск — сразу переходим на вкладку погоды
     private void Start()
     {
-        SwitchTab(Tab.Weather); // По умолчанию открываем погоду
+        SwitchTab(Tab.Weather);
     }
 
+    // Основная логика переключения между вкладками
     private void SwitchTab(Tab newTab)
     {
-        if (_currentTab == newTab) return;
+        if (_currentTab == newTab) return; // Если уже на нужной вкладке — ничего не делаем
 
-        // Останавливаем текущую вкладку
+        // Отключаем старую вкладку
         switch (_currentTab)
         {
             case Tab.Weather:
-                _weatherApiService.StopUpdating();
-                _weatherPanel.gameObject.SetActive(false);
-                _loadingImg.SetActive(false);
+                _weatherApiService.StopUpdating();                     // Остановить запросы погоды
+                _weatherPanel.gameObject.SetActive(false);            // Скрыть панель погоды
                 break;
             case Tab.Breeds:
-                _dogApiService.StopAllLoadings();
-                _breedsListPanel.gameObject.SetActive(false);
-                _loadingImg.SetActive(false);
+                _dogApiService.StopAllLoadings();                     // Остановить запросы пород
+                _breedsListPanel.gameObject.SetActive(false);         // Скрыть панель пород
                 break;
         }
 
-        // Запускаем новую вкладку
-        _currentTab = newTab;
+        _loadingImg.SetActive(true); // Показываем спиннер загрузки
+        _currentTab = newTab;        // Обновляем текущую вкладку
+
+        // Включаем новую вкладку
         switch (_currentTab)
         {
             case Tab.Weather:
-                _loadingImg.SetActive(true);
+                // Запускаем сервис погоды, по завершении включаем панель
                 _weatherApiService.StartUpdating(() =>
                 {
                     _loadingImg.SetActive(false);
@@ -48,8 +52,7 @@ public class TabController : MonoBehaviour
                 });
                 break;
             case Tab.Breeds:
-                _breedsListPanel.ClearList();
-                _loadingImg.SetActive(true);
+                _breedsListPanel.ClearList(); // Очищаем старые кнопки
                 _dogApiService.LoadBreeds(() =>
                 {
                     _loadingImg.SetActive(false);
@@ -59,7 +62,7 @@ public class TabController : MonoBehaviour
         }
     }
 
-    // Публичные методы для UI
+    // Методы, вызываемые UI-кнопками
     public void OnWeatherTabClicked() => SwitchTab(Tab.Weather);
     public void OnBreedsTabClicked() => SwitchTab(Tab.Breeds);
 }

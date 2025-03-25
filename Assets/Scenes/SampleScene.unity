@@ -375,7 +375,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 455808170}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DogApiService, Assembly-CSharp
         m_MethodName: ResetCurrentBreedId
         m_Mode: 1
@@ -590,10 +590,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1233134910}
   - {fileID: 1753698462}
   - {fileID: 455808171}
-  - {fileID: 958016456}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &455808169
@@ -605,29 +603,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 455808171}
-  - component: {fileID: 455808170}
+  - component: {fileID: 455808172}
   m_Layer: 0
-  m_Name: Dog API Service
+  m_Name: API Services
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &455808170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 455808169}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a02a959288eb243a694fb1e5714b1d2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _url: https://dogapi.dog/api/v2/breeds
-  _breedsListPanel: {fileID: 1358410723}
-  _requestQueue: {fileID: 958016457}
 --- !u!4 &455808171
 Transform:
   m_ObjectHideFlags: 0
@@ -643,6 +626,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 453772758}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &455808172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455808169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: debad5309c8e8847bbadf4cb803b470b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &473110564
 GameObject:
   m_ObjectHideFlags: 0
@@ -1245,50 +1240,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 943832453}
   m_CullTransparentMesh: 1
---- !u!1 &958016455
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 958016456}
-  - component: {fileID: 958016457}
-  m_Layer: 0
-  m_Name: Request Queue
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &958016456
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 958016455}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 453772758}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &958016457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 958016455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05c19879fc2b54227be9bf393e9e9032, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &960986913
 GameObject:
   m_ObjectHideFlags: 0
@@ -1573,55 +1524,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1233134909
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1233134910}
-  - component: {fileID: 1233134911}
-  m_Layer: 0
-  m_Name: Tab Controller
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1233134910
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1233134909}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 453772758}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1233134911
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1233134909}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1866be65119bd2c4bbe867e69e70c953, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _weatherApiService: {fileID: 1753698463}
-  _dogApiService: {fileID: 455808170}
-  _weatherPanel: {fileID: 1990965311}
-  _breedsListPanel: {fileID: 1358410723}
-  _loadingImg: {fileID: 473110564}
 --- !u!1 &1358410720
 GameObject:
   m_ObjectHideFlags: 0
@@ -1699,8 +1601,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _breedBtnViewList: []
   _breedDetailsBtnPrefab: {fileID: 2746103199127085564, guid: 2b3758ac81e64a6198b6f9bc93a78162, type: 3}
-  _api: {fileID: 455808170}
-  _popup: {fileID: 542446561}
 --- !u!1 &1431809230
 GameObject:
   m_ObjectHideFlags: 0
@@ -1898,7 +1798,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weatherTabBtn: {fileID: 799139868}
   _breedsTabBtn: {fileID: 2087702613}
-  _tabController: {fileID: 1233134911}
 --- !u!1 &1674108096
 GameObject:
   m_ObjectHideFlags: 0
@@ -2108,6 +2007,71 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1692491650}
   m_CullTransparentMesh: 1
+--- !u!1 &1694105696
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1694105698}
+  - component: {fileID: 1694105697}
+  m_Layer: 0
+  m_Name: SceneContext
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1694105697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694105696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89715ad69b973a14899afa2c6730b30b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scriptableObjectInstallers: []
+  _monoInstallers:
+  - {fileID: 455808172}
+  - {fileID: 1753698463}
+  _installerPrefabs: []
+  _autoRun: 1
+  OnPreInstall:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPostInstall:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPreResolve:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPostResolve:
+    m_PersistentCalls:
+      m_Calls: []
+  _parentNewObjectsUnderSceneContext: 0
+  _contractNames: []
+  _parentContractNames: []
+--- !u!4 &1694105698
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694105696}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1728774183
 GameObject:
   m_ObjectHideFlags: 0
@@ -2186,8 +2150,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1753698462}
   - component: {fileID: 1753698463}
+  - component: {fileID: 1753698464}
   m_Layer: 0
-  m_Name: Weather API Service
+  m_Name: UI Services
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2217,12 +2182,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 1753698461}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84f98f188079782239d5045617a8ab14, type: 3}
+  m_Script: {fileID: 11500000, guid: d8aebb69e644f08aebe3f56ab1bc9b24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _url: https://api.weather.gov/gridpoints/TOP/32,81/forecast
-  _requestQueue: {fileID: 958016457}
+  _tabController: {fileID: 1753698464}
+  _breedListPanel: {fileID: 1358410723}
   _weatherPanel: {fileID: 1990965311}
+  _popup: {fileID: 542446561}
+--- !u!114 &1753698464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1753698461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1866be65119bd2c4bbe867e69e70c953, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _loadingImg: {fileID: 473110564}
 --- !u!1 &1886708927
 GameObject:
   m_ObjectHideFlags: 0
@@ -2802,3 +2781,4 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 1886708931}
   - {fileID: 1728774186}
+  - {fileID: 1694105698}
